@@ -1,7 +1,5 @@
 import RPi.GPIO as gpio
 import time
-import sys
-import Tkinter as tk
 
 # motor 1: right side (e.g. input 1 from L298N driver to pin 15)
 pin_input_1 = 15
@@ -21,7 +19,7 @@ def init():
 
 
 def forward():
-    #init()
+    init()
     # left side
     gpio.output(pin_input_3, False)
     gpio.output(pin_input_4, True)
@@ -36,7 +34,7 @@ def forward():
 
 
 def backward():
-    #init()
+    init()
     # left side
     gpio.output(pin_input_3, True)
     gpio.output(pin_input_4, False)
@@ -51,7 +49,7 @@ def backward():
 
 
 def left():
-    #init()
+    init()
     # left side
     gpio.output(pin_input_4, True)
     gpio.output(pin_input_3, True)
@@ -66,7 +64,7 @@ def left():
 
 
 def right():
-    #init()
+    init()
     # left side
     gpio.output(pin_input_4, True)
     gpio.output(pin_input_3, False)
@@ -78,30 +76,3 @@ def right():
     # for a few seconds
     time.sleep(0.5)
     gpio.cleanup()
-
-init()
-#forward()
-# backward()
-left()
-# right()
-
-def key_input(event):
-    init()
-    print 'Key:', event.char
-    key_press = event.char
-    sleep_time = 0.030
-
-    if key_press.lower() == 'w':
-        forward()
-    elif key_press.lower() == 's':
-        backward()
-    elif key_press.lower() == 'd':
-        right()
-    elif key_press.lower() == 'a':
-        left()
-    else:
-        pass
-
-# command = tk.Tk()
-#command.bind('<KeyPress>', key_input)
-#command.mainloop()
