@@ -7,7 +7,8 @@ pin_input_2 = 13  # true ==> forward
 
 # motor 2: left side
 pin_input_3 = 11
-pin_input_4 = 7   # true  ==> forward
+pin_input_4 = 7  # true  ==> forward
+
 
 # init gpio pins
 def init():
@@ -16,6 +17,10 @@ def init():
     gpio.setup(pin_input_2, gpio.OUT)
     gpio.setup(pin_input_3, gpio.OUT)
     gpio.setup(pin_input_4, gpio.OUT)
+
+
+def cleanup():
+    gpio.cleanup()
 
 
 def forward():
@@ -28,10 +33,6 @@ def forward():
     gpio.output(pin_input_2, True)
     gpio.output(pin_input_1, False)
 
-    # for a few seconds
-    time.sleep(1)
-    gpio.cleanup()
-
 
 def backward():
     init()
@@ -42,10 +43,6 @@ def backward():
     # right side
     gpio.output(pin_input_2, False)
     gpio.output(pin_input_1, True)
-
-    # for a few seconds
-    time.sleep(0.3)
-    gpio.cleanup()
 
 
 def left():
@@ -58,10 +55,6 @@ def left():
     gpio.output(pin_input_2, True)
     gpio.output(pin_input_1, False)
 
-    # for a few seconds
-    time.sleep(0.5)
-    gpio.cleanup()
-
 
 def right():
     init()
@@ -72,7 +65,3 @@ def right():
     # right side
     gpio.output(pin_input_2, True)
     gpio.output(pin_input_1, True)
-
-    # for a few seconds
-    time.sleep(0.5)
-    gpio.cleanup()

@@ -1,0 +1,32 @@
+.forward {
+    margin-top: 30px;
+}
+
+.backward {
+    margin-top: 30px;
+}
+
+.left {
+    margin-right: 20px;
+}
+
+.right {
+    margin-left: 20px;
+}
+
+.mainWindow {
+    margin-top: 100px;
+}
+
+.leftController {
+    margin-top: 180px;
+}
+
+.rightController {
+    margin-top: 100px;
+}
+
+.camera {
+    border: solid;
+    height: 400px;
+}
