@@ -1,5 +1,5 @@
 var websocket;
-var wsUri = "ws://192.168.178.26:9090";
+var wsUri = "ws://" + document.domain + ":9090";
 
 // initialize websocket connection
 function init() {
