@@ -7,11 +7,11 @@
 }
 
 .left {
-    margin-right: 20px;
+    margin-right: 12px;
 }
 
 .right {
-    margin-left: 20px;
+    margin-left: 12px;
 }
 
 .mainWindow {
@@ -27,6 +27,4 @@
 }
 
 .camera {
-    border: solid;
-    height: 400px;
 }
