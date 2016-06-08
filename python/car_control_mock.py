@@ -2,6 +2,7 @@
 def init():
     print 'mock: init()'
 
+
 def forward():
     init()
     print 'mock: forward()'
@@ -20,6 +21,7 @@ def left():
 def right():
     init()
     print 'mock: right()'
+
 
 def cleanup():
     print 'mock: cleanup()'

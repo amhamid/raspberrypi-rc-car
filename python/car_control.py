@@ -27,6 +27,7 @@ def init():
     gpio.setup(pin_input_4, gpio.OUT)
     gpio.setup(pin_enable_a, gpio.OUT)
     gpio.setup(pin_enable_b, gpio.OUT)
+    start_engine()
 
 
 def cleanup():
@@ -34,13 +35,20 @@ def cleanup():
 
 
 def start_engine():
-    init()
+    gpio.output(pin_input_1, False)
+    gpio.output(pin_input_2, False)
+    gpio.output(pin_input_3, False)
+    gpio.output(pin_input_4, False)
     gpio.output(pin_enable_a, True)
     gpio.output(pin_enable_b, True)
 
 
 def stop_engine():
     init()
+    gpio.output(pin_input_1, False)
+    gpio.output(pin_input_2, False)
+    gpio.output(pin_input_3, False)
+    gpio.output(pin_input_4, False)
     gpio.output(pin_enable_a, False)
     gpio.output(pin_enable_b, False)
 
@@ -54,8 +62,6 @@ def forward():
     # right side
     gpio.output(pin_input_2, True)
     gpio.output(pin_input_1, False)
-    time.sleep(2)
-    cleanup()
 
 
 def backward():
@@ -89,7 +95,3 @@ def right():
     # right side
     gpio.output(pin_input_2, True)
     gpio.output(pin_input_1, True)
-
-
-start_engine()
-forward()
