@@ -5,26 +5,51 @@
 
     <script src='../js/jquery-2.2.4.min.js'></script>
     <script src='../js/bootstrap-3.3.6.min.js'></script>
+    <script src='../js/vue-1.0.24.min.js'></script>
     <script src='../js/websocket-client.js'></script>
 
     <link rel="stylesheet" type="text/css" href='../css/bootstrap-3.3.6.min.css'>
     <link rel="stylesheet" type="text/css" href='../css/bootstrap-theme-3.3.6.min.css'>
     <link rel="stylesheet" type="text/css" href='../css/style.css'>
+
+
+    <script>
+        $(document).ready(function() {
+            // get ip address where this webserver runs and replace html template with the value. (see Vuejs.org)
+            new Vue({
+              el: '#cameraStreamer',
+              data: {
+                ip: document.domain
+              }
+            });
+        });
+    </script>
+
 </head>
 <body class="container-fluid" onload="init();">
 
 <div class="row mainWindow">
     <div class="col-xs-3 leftController">
-        <span><img class="left" src="../images/left.png" width="80px" height="80px"/></span>
-        <span><img class="right" src="../images/right.png" width="80px" height="80px"/></span>
+        <div>
+            <button class="left btn btn-success btn-xlarge">Left</button>
+        </div>
+        <div>
+            <button class="right btn btn-warning btn-xlarge">Right</button>
+        </div>
     </div>
     <div class="col-xs-6">
-        <!-- TODO fix ip address -->
-        <div class='camera'><img src="http://192.168.178.30:8080/?action=stream" /></div>
+        <div class='camera'>
+            <img id="cameraStreamer" class="img-responsive img-rounded"
+                 src="http://{{ ip }}:8080/?action=stream"/>
+        </div>
     </div>
     <div class="col-xs-3 rightController">
-        <div><input class="forward"type="image" src="../images/up.png" width="80px" height="80px"/></div>
-        <div><img class="backward" src="../images/down.png" width="80px" height="80px"/></div>
+        <div>
+            <button class="forward btn btn-primary btn-xlarge">Forward</button>
+        </div>
+        <div>
+            <button class="backward btn btn-danger btn-xlarge">Backward</button>
+        </div>
     </div>
 </div>
 
