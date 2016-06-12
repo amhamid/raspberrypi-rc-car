@@ -48,7 +48,7 @@ function arrowHandler(action) {
     });
 
     // touch devices
-    $(actionElement).on('touchstart tap', function() {
+    $(actionElement).on('touchstart', function() {
         console.log(action);
         doSend(action);
     });
