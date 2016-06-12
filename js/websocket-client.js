@@ -38,11 +38,21 @@ function arrowHandler(action) {
     var actionElement = '.' + action;
 
     // desktop
-    $(actionElement).on('touchstart mousedown', function() {
+    $(actionElement).on('mousedown', function() {
         console.log(action);
         doSend(action);
     });
-    $(actionElement).on('touchend mouseup', function() {
+    $(actionElement).on('mouseup', function() {
+        console.log("cleanup");
+        doSend("cleanup");
+    });
+
+    // touch devices
+    $(actionElement).on('touchstart', function() {
+        console.log(action);
+        doSend(action);
+    });
+    $(actionElement).on('touchend', function() {
         console.log("cleanup");
         doSend("cleanup");
     });
