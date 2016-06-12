@@ -38,14 +38,14 @@ function arrowHandler(action) {
     var actionElement = '.' + action;
 
     // desktop
-    $(actionElement).on('mousedown', function() {
-        console.log(action);
-        doSend(action);
-    });
-    $(actionElement).on('mouseup', function() {
-        console.log("cleanup");
-        doSend("cleanup");
-    });
+//    $(actionElement).on('mousedown', function() {
+//        console.log(action);
+//        doSend(action);
+//    });
+//    $(actionElement).on('mouseup', function() {
+//        console.log("cleanup");
+//        doSend("cleanup");
+//    });
 
     // touch devices
     $(actionElement).on('touchstart', function() {
