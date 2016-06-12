@@ -60,9 +60,9 @@ function arrowHandler(action) {
 
 function eventHandler() {
     $(document).ready(function() {
-        arrowHandler(".forward");
-        arrowHandler(".backward");
-        arrowHandler(".left");
-        arrowHandler(".right");
+        arrowHandler("forward");
+        arrowHandler("backward");
+        arrowHandler("left");
+        arrowHandler("right");
     });
 }
