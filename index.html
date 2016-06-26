@@ -21,12 +21,14 @@
                 ip: document.domain
               }
             });
-        });
 
+            // connect to websocket
+            websocketInitConnection();
+        });
     </script>
 
 </head>
-<body class="container-fluid" onload="init();">
+<body class="container-fluid">
 
 <div class="row mainWindow">
     <div class="col-xs-3 leftController">

@@ -2,7 +2,7 @@ var websocket;
 var wsUri = "ws://" + document.domain + ":9090";
 
 // initialize websocket connection
-function init() {
+function websocketInitConnection() {
   connectWebSocket();
   eventHandler();
 }
