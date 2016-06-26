@@ -12,12 +12,6 @@ pin_input_4 = 7  # true  ==> forward
 pin_enable_a = 16
 pin_enable_b = 18
 
-
-# TODO:
-# why the wheel on one side runs first ==> this cause problem on restart (too much power)
-# findout a little shock cause raspberry pi to restart !!!
-
-
 # init gpio pins
 def init():
     gpio.setmode(gpio.BOARD)
@@ -77,21 +71,22 @@ def backward():
 
 def left():
     init()
-    # left side
-    gpio.output(pin_input_4, True)
+    # left side - backward
     gpio.output(pin_input_3, True)
+    gpio.output(pin_input_4, False)
 
-    # right side
+    # right side - forward
     gpio.output(pin_input_2, True)
     gpio.output(pin_input_1, False)
 
 
 def right():
     init()
-    # left side
-    gpio.output(pin_input_4, True)
+    # left side - forward
     gpio.output(pin_input_3, False)
+    gpio.output(pin_input_4, True)
 
-    # right side
-    gpio.output(pin_input_2, True)
+    # right side - backward
+    gpio.output(pin_input_2, False)
     gpio.output(pin_input_1, True)
+
