@@ -47,46 +47,34 @@ def stop_engine():
     gpio.output(pin_enable_b, False)
 
 
-def forward():
-    init()
-    # left side
-    gpio.output(pin_input_3, False)
-    gpio.output(pin_input_4, True)
-
-    # right side
-    gpio.output(pin_input_2, True)
-    gpio.output(pin_input_1, False)
-
-
-def backward():
-    init()
-    # left side
-    gpio.output(pin_input_3, True)
-    gpio.output(pin_input_4, False)
-
-    # right side
-    gpio.output(pin_input_2, False)
-    gpio.output(pin_input_1, True)
-
-
 def left():
     init()
-    # left side - backward
-    gpio.output(pin_input_3, True)
-    gpio.output(pin_input_4, False)
-
-    # right side - forward
+    gpio.output(pin_input_3, False)
+    gpio.output(pin_input_4, True)
     gpio.output(pin_input_2, True)
     gpio.output(pin_input_1, False)
 
 
 def right():
     init()
-    # left side - forward
+    gpio.output(pin_input_3, True)
+    gpio.output(pin_input_4, False)
+    gpio.output(pin_input_2, False)
+    gpio.output(pin_input_1, True)
+
+
+def forward():
+    init()
+    gpio.output(pin_input_3, True)
+    gpio.output(pin_input_4, False)
+    gpio.output(pin_input_2, True)
+    gpio.output(pin_input_1, False)
+
+
+def backward():
+    init()
     gpio.output(pin_input_3, False)
     gpio.output(pin_input_4, True)
-
-    # right side - backward
     gpio.output(pin_input_2, False)
     gpio.output(pin_input_1, True)
 
