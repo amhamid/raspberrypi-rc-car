@@ -26,8 +26,12 @@ start)
         fi
 
 	printf "%-50s" "Starting video streamer..."
+
+	sleep 10s
 	PID3=`raspistill --nopreview -w 480 -h 320 -q 8 -ISO 200 -o /home/pi/stream/pic.jpg -tl 1 -t 9999999 -th 0:0:0 > /dev/null 2>&1 & echo $!`
-        PID4=`LD_LIBRARY_PATH=/usr/local/lib mjpg_streamer -i "input_file.so -f /home/pi/stream -n pic.jpg" -o "output_http.so -w /usr/local/www" > /dev/null 2>&1 & echo $!`
+
+    sleep 30s
+    PID4=`LD_LIBRARY_PATH=/usr/local/lib mjpg_streamer -i "input_file.so -f /home/pi/stream -n pic.jpg" -o "output_http.so -w /usr/local/www" > /dev/null 2>&1 & echo $!`
         if [ -n "$PID3" ] && [ -n "$PID4" ]; then
             echo $PID3 > $PIDFILE3
             echo $PID4 > $PIDFILE4
